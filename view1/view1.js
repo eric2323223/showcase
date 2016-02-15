@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.view1', ['ngRoute'])
+angular.module('myApp.view1', ['ngRoute', 'myApp.vis'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/view1', {
@@ -9,6 +9,9 @@ angular.module('myApp.view1', ['ngRoute'])
   });
 }])
 
-.controller('View1Ctrl', [function() {
-
+.controller('View1Ctrl', ['$scope','$interval',  function($scope, $interval) {
+  $scope.randomNumber = 10;
+      $interval(function () {
+        $scope.randomNumber = Math.floor(Math.random()*501)
+      }, 2000);
 }]);
