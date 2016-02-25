@@ -28,7 +28,7 @@ angular.module('myApp.vis').directive('d3gauge', function() {
                 //inputSections: scope.sections,
                 //border: scope.border === true ? true : false
             };
-            var gauge = new d3.custom.gauge(d3.select('#'+scope.id), config, parseInt(scope.value));
+            var gauge = new D3gauge(d3.select('#'+scope.id), config, parseInt(scope.value));
 
             scope.$watch('value', function (updatedValue) {
                 gauge.write(updatedValue);
